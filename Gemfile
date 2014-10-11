@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'carrierwave'
 gem 'fog'
+gem 'figaro'
 
 group :doc do
 	gem 'sdoc', '~> 0.4.0'
