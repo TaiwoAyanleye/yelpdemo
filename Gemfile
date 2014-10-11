@@ -12,6 +12,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'figaro'
 gem "mini_magick", "~> 4.0.0.rc"
+gem 'devise'
 
 group :doc do
 	gem 'sdoc', '~> 0.4.0'
