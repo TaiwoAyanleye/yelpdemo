@@ -6,3 +6,4 @@ CarrierWave.configure do |config|
   }
   config.fog_directory  = ENV['fog_directory']                          # required
 end
+#
