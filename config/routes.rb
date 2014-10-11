@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :restaurants
 
-  get 'pages/about'
+  root 'restaurants#index'
 
+  get 'pages/about'
   get 'pages/contact'
 
   # The priority is based upon order of creation: first created -> highest priority.
