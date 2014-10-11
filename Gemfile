@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'carrierwave'
 gem 'fog'
 gem 'figaro'
+gem "mini_magick", "~> 4.0.0.rc"
 
 group :doc do
 	gem 'sdoc', '~> 0.4.0'
