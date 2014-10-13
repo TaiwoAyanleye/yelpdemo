@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_review, only: [:edit, :update, :destroy]
+  before_action :set_restaurant
+  before_action :authenticate_user!
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   def index
     @reviews = Review.all
@@ -48,6 +50,10 @@ class ReviewsController < ApplicationController
   private
     def set_review
       @review = Review.find(params[:id])
+    end
+
+    def set_restaurant
+      @restaurant = Restaurant.find(params[:restaurant_id])
     end
 
     def review_params
