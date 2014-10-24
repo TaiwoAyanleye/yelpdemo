@@ -1,30 +1,71 @@
 <div class="row">
 	<div class="col-md-3">		
 		<%= image_tag @restaurant.image_url(:thumb) %>
-		<%= link_to 'Write Review', new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
-	</div>
-</div>
 
-<table class="table">
-	<tbody>
+			<h2>
+				<%= @restaurant.name %>
+			</h2>
+
+			<div class="star-rating" data-score= <%= @avg_rating %> ></div>
+			<p><%= "#{@reviews.length} reviews" %></p>
+
+			<p>
+				<strong>Address:</strong>
+				<%= @restaurant.address %>
+			</p>
+
+			<p>
+				<strong>Phone:</strong>
+				<%= @restaurant.phone %>
+			</p>
+
+			<p>
+				<strong>Website:</strong>
+				<%= link_to @restaurant.website, @restaurant.website %>
+			</p>
+
+			<%= link_to 'Write Review', new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+
+			<br>
+			<br>
+	</div>
+
+	<div class="col-md-9">
 		<% if @reviews.blank? %>
-      		<h3>No reviews yet. Be the first to write one!</h3>
-    	<% else %>
-			<% @reviews.each do |review| %>
-				<tr>
-					<td>
-						<div class="star-rating" data-score= <%= @avg_rating %> ></div>
-						<p><%= "#{@reviews.length} reviews" %></p>
-						<p><%= review.comment %></p>
-					</td>
-				</tr>
-			<% end %>
+			<h3>No reviews yet. Be the first to write one!</h3>
+		<% else %>
+			<table class="table">
+				<thead>
+					<tr>
+						<th class="col-md-3"></th>
+						<th class="col-md-9"></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @reviews.each do |review| %>
+					<tr>
+						<td>
+							<h4>
+								<%= "#{review.user.first_name.capitalize} #{review.user.last_name.capitalize}" %>
+							</h4>
+							<p><%= review.created_at.strftime("%-m/%-d/%-y") %></p>
+						</td>
+
+						<td>
+							<div class="star-rating" data-score= <%= review.rating %> ></div>
+							<p><% h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>	
 		<% end %>
-	</tbody>
-</table>
+	</div>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-link" %> |
 <%= link_to 'Back', restaurants_path, class: "btn btn-link" %>
+</div>
 
 <script>
   $('.star-rating').raty({
