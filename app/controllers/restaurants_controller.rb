@@ -7,6 +7,16 @@ class RestaurantsController < ApplicationController
   # GET /restaurants.json
   def index
     @restaurants = Restaurant.all
+
+    #Generate html to pdf
+    # respond_to do |format|
+    #   format.html
+    #   format.pdf do
+    #     pdf = ReportPdf.new(@restaurants)
+    #     send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+    #   end
+    # end
+
   end
 
   # GET /restaurants/1
@@ -18,6 +28,7 @@ class RestaurantsController < ApplicationController
     else
       @avg_rating = @reviews.average(:rating).round(2)
     end
+    @restaurants = Restaurant.all
   end
 
   # GET /restaurants/new

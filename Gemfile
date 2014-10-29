@@ -13,6 +13,15 @@ gem 'fog'
 gem 'figaro'
 gem "mini_magick", "~> 4.0.0.rc"
 gem 'devise'
+gem 'searchkick'
+
+#HTML to PDF
+# gem "pdfkit"
+# gem "wkhtmltopdf-binary"
+
+gem 'prawn'
+gem 'prawn-table'
+gem 'prawn-rails'
 
 group :doc do
 	gem 'sdoc', '~> 0.4.0'
