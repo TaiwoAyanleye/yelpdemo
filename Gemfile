@@ -18,7 +18,6 @@ gem 'searchkick'
 #HTML to PDF
 # gem "pdfkit"
 # gem "wkhtmltopdf-binary"
-
 gem 'prawn'
 gem 'prawn-table'
 gem 'prawn-rails'
@@ -33,6 +32,8 @@ group :development do
 	gem 'better_errors'
 	gem 'binding_of_caller'
 	gem 'meta_request'
+	gem 'faker'
+  	gem 'populator'
 end
 
 group :production do
