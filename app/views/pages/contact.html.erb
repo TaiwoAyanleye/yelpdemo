@@ -1,3 +1,6 @@
-<h1>We would love to hear from you</h1>
-<p>Contact us at taiwo@stutern.com</p>
-<p>Copyright Taiwo Ayanleye</p>
+<!-- # input_type may be select, multiselect, radio, checkboxes, or string. -->
+<% q = Questionable::Question.create(title: 'What is your favorite color?', input_type: 'select', note: 'This is important') %>
+
+<%= q.options.create(title: 'Red',   position: 1) %>
+<%= q.options.create(title: 'Green', position: 2) %>
+<%= q.options.create(title: 'Blue',  position: 3) %>
